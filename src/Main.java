@@ -32,8 +32,21 @@ public class Main {
                 case 3:
                     break;
                 case 4:
+                    System.out.print("Enter the ISBN Book to remove: ");
+                    String isbn = scanner.nextLine();
+                    library.removeBook(isbn);
+
                     break;
                 case 5:
+                    System.out.print("Enter ISBN of book to update: ");
+                    isbn = scanner.next();
+                    //sc.nextLine();
+                    System.out.println("1: Update Title\n2: Update Author\n3: Update Availability");
+                    System.out.print("Enter your choice: ");
+                    int updateChoice = scanner.nextInt();
+
+                    library.updateBook(isbn, updateChoice);
+
                     break;
                 default:
                     System.out.println("Invalid choice.");
@@ -43,22 +56,23 @@ public class Main {
     }
 
     static void addBook() {
-        System.out.print("Enter book title: ");
-        String title = scanner.nextLine();
-        System.out.print("Enter book author: ");
-        String author = scanner.nextLine();
-        System.out.print("Enter book isbn: ");
-        String isbn = scanner.nextLine();
-        System.out.print("Enter book availability (true/false): ");
-        boolean isAvailable = scanner.nextBoolean();
+          System.out.print("Enter book title: ");
+             String title = scanner.nextLine();
+               System.out.print("Enter book author: ");
+                String author = scanner.nextLine();
+                   System.out.print("Enter book isbn: ");
+                    String isbn = scanner.nextLine();
+                     System.out.print("Enter book availability (true/false): ");
+                       boolean isAvailable = scanner.nextBoolean();
 
-        scanner.nextLine();
+                           scanner.nextLine();
 
         Book book = new Book(title, author, isbn, isAvailable);
         library.addBook(book);
 
+
     }
-    static  void editBook() {
-        System.out.println();
-    }
+
+
+
 }
