@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Library {
     ArrayList<Book> books = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
 
     public void addBook(Book book) {
         books.add(book);
@@ -21,24 +22,28 @@ public class Library {
         }
         }
 
-        public Book searchBook(String title, String author, String isbn) {
+public void searchBook() {
+        String valueForSearch ;
         ArrayList<Book> stock = new ArrayList<>();
-            for (Book book : books) {
-                if ((title != null && title.equals(book.getTitle()))||
-                (isbn != null && isbn.equals(book.getIsbn()))||
-                (author != null && author.equals(book.getAuthor()))) {
+    System.out.println("Enter title or author or ISBN to search : ");
 
-                    stock.add(book);
-                    System.out.println(stock);
-                }
-
-            }
-            if (stock.isEmpty()) {
-                System.out.println("No books found.");
-            }
-            return stock.get(0);
+    valueForSearch = scanner.nextLine();
+    for (Book book : books) {
+        if (book.getTitle().equals(valueForSearch) ||
+                book.getAuthor().equals(valueForSearch) ||
+                book.getIsbn().equals(valueForSearch)) {
+            stock.add(book);
         }
+    }
+    if (stock.isEmpty()) {
+        System.out.println("Book not found.");
+    } else {
+        for (Book book : stock) {
+            System.out.println(book);
+        }
+    }
 
+}
 
     public void removeBook(String isbn) {
         if (books.isEmpty()) {
