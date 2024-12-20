@@ -60,8 +60,3 @@ The system is organized into the following Java classes:
 
 ---
 
-## How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/library-management-system.git
